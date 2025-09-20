@@ -28,7 +28,7 @@ const WhyChooseMe = () => {
             <div className="why-choose-me-container">
                 <div className="image-container">
                     <img
-                        src="https://i.postimg.cc/1R79Z9LS/Gemini-Generated-Image-3hspxa3hspxa3hsp.png"
+                        src={require('../assets/images/aboutpic.png')}
                         alt="Why Choose Me"
                         className="profile-image"
                     />
@@ -71,7 +71,6 @@ const WhyChooseMe = () => {
                                 ></div>
                             </div>
                         </div>
-                        {/* ✅ UI/UX Bar Added */}
                         <div className="bar-wrapper">
                             <span className="label">UI/UX Design (Figma)</span>
                             <span className="percentage">85%</span>

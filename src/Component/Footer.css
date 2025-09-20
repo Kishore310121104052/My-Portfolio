@@ -1,11 +1,12 @@
 .footer-section {
   background: url('https://templatekit.hellokuro.com/perzifo/wp-content/uploads/2024/01/striped-blue-watercolor-banner-top-3-XBWPYHE.jpg') center center/cover no-repeat;
-  padding: 95px 0 20px 0;
+  padding: 25px 0 20px 0;
   color: #000;
   font-family: 'Poppins', 'Times New Roman', Times, serif;
   display: flex;
   flex-direction: column;
   gap: 70px;
+  margin-top: 4%;
 }
 
 /* Top CTA Section */
