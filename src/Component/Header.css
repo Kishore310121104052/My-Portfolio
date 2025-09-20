@@ -1,0 +1,193 @@
+/* Header.css */
+.header-container {
+  padding: 10px 0;
+  background-color: #ffffff;
+  /* example color, adjust as needed */
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.logo {
+  flex: 1 1 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-image {
+  max-width: 150px;
+  width: 100%;
+  height: auto;
+}
+
+.nav-menu {
+  flex: 2 1 60%;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+.nav-item {
+  text-decoration: none;
+  font-family: 'Poppins', 'Times New Roman', Times, serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #030303;
+  transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+  color: #5CA6BF;
+  /* example hover color */
+}
+
+.hireme-button-container {
+  flex: 1 1 20%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hireme-button {
+  background-color: #3390AF;
+  border: none;
+  padding: 10px 25px;
+  font-family: 'Poppins', 'Times New Roman', Times, serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.hireme-button:hover {
+  background-color: #5CA6BF;
+}
+
+/* Responsive for tablets */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 15px;
+  }
+
+  .logo {
+    flex: 1 1 20%;
+  }
+
+  .nav-menu {
+    flex: 1 1 50%;
+  }
+
+  .nav-list {
+    gap: 15px;
+  }
+
+  .hireme-button-container {
+    flex: 1 1 30%;
+  }
+}
+
+/* Responsive for mobile */
+@media (max-width: 480px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .logo,
+  .nav-menu,
+  .hireme-button-container {
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+/* Dropdown styles */
+.nav-item.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  list-style: none;
+  padding: 10px 0;
+  min-width: 200px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.dropdown-menu li {
+  padding: 8px 20px;
+}
+
+.dropdown-menu li a {
+  color: #030303;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.dropdown-menu li a:hover {
+  color: #5CA6BF;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+/* Hamburger icon (hidden on desktop) */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #030303;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    width: 100%;
+  }
+
+  .nav-menu.active {
+    display: block;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .hireme-button-container {
+    margin-top: 10px;
+    justify-content: center;
+  }
+}

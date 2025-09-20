@@ -1,0 +1,298 @@
+/* src/Component/Experiences.css */
+
+/* SECTION LAYOUT (matches JSON padding values) */
+.experiences-section {
+    padding: 95px 20px;
+    background: #ffffff;
+    font-family: "Poppins", "Times New Roman", Times, serif;
+}
+
+@media (max-width: 992px) {
+    .experiences-section {
+        padding: 65px 20px;
+    }
+}
+
+/* INNER CONTAINER */
+.experiences-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* HEADINGS */
+.experiences-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.experiences-subtitle {
+    color: #3390AF;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.experiences-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.experiences-intro {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* TIMELINE WRAPPER */
+.timeline {
+    position: relative;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* Vertical center line */
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 4px;
+    background: #3390AF;
+    height: 100%;
+    z-index: 1;
+}
+
+/* TIMELINE ITEM (two columns + center marker) */
+.timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    align-items: center;
+    gap: 20px;
+    z-index: 2;
+    padding: 10px 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* when in view */
+.timeline-item.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* content column (left or right) */
+.content-col {
+    padding: 20px 30px;
+    text-align: right;
+    /* default for left items (text on left aligns right to center line) */
+}
+
+.timeline-item.right .content-col {
+    text-align: left;
+    /* text on right items aligns left to center line */
+}
+
+/* role title and description */
+.role-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 12px;
+}
+
+.role-desc {
+    color: #555;
+    font-size: 15px;
+    text-align: justify;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.company-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.timeline-item.right .company-row {
+    align-items: flex-start;
+}
+
+.company {
+    color: #3390AF;
+    font-weight: 700;
+}
+
+.period {
+    color: #777;
+    font-size: 13px;
+}
+
+/* center marker */
+.marker-wrap {
+    position: relative;
+    width: 60px;
+    height: 1px;
+    /* just a placeholder area */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    border: 4px solid #3390AF;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    z-index: 3;
+}
+
+/* image column */
+.image-col {
+    display: flex;
+    justify-content: left;
+    /* default for left items: image on right */
+}
+
+.timeline-item.right .image-col {
+    justify-content: right;
+    /* image on left for right items */
+}
+
+.exp-image {
+    width: 360px;
+    max-width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* RESPONSIVE: stack on small screens */
+@media (max-width: 880px) {
+    .timeline {
+        gap: 30px;
+    }
+
+    .timeline-line {
+        left: 20px;
+        transform: none;
+        width: 3px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 40px 1fr;
+        align-items: flex-start;
+        gap: 16px;
+        padding-left: 10px;
+    }
+
+    .marker-wrap {
+        width: 40px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .marker {
+        margin-top: 6px;
+    }
+
+    .content-col {
+        padding: 0;
+        text-align: left;
+        grid-column: 2 / 3;
+    }
+
+    .timeline-item.right .content-col {
+        text-align: left;
+    }
+
+    .image-col {
+        grid-column: 2 / 3;
+        justify-content: flex-start;
+    }
+
+    .exp-image {
+        width: 100%;
+        height: 180px;
+    }
+
+    .company-row {
+        align-items: flex-start;
+    }
+}
+
+/* small tweak for very small screens */
+@media (max-width: 480px) {
+    .experiences-title {
+        font-size: 28px;
+    }
+
+    .exp-image {
+        height: 140px;
+    }
+
+    .role-title {
+        font-size: 18px;
+    }
+}
+/* ================= Extra Responsive Tweaks ================= */
+
+/* Tablets (600px - 880px) */
+@media (max-width: 768px) {
+    .experiences-intro {
+        font-size: 14px;
+        max-width: 95%;
+    }
+    .role-desc {
+        font-size: 14px;
+    }
+    .exp-image {
+        height: 150px;
+    }
+}
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .experiences-section {
+        padding: 50px 15px;
+    }
+
+    .experiences-subtitle {
+        font-size: 14px;
+    }
+
+    .experiences-title {
+        font-size: 24px;
+    }
+
+    .role-title {
+        font-size: 16px;
+    }
+
+    .role-desc {
+        font-size: 13px;
+    }
+
+    .company {
+        font-size: 14px;
+    }
+
+    .period {
+        font-size: 12px;
+    }
+
+    .exp-image {
+        height: 120px;
+    }
+}

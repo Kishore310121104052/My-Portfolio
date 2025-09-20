@@ -1,0 +1,194 @@
+/* src/Component/ContactPage.css */
+/* Top banner section */
+.contact-top-banner {
+    width: 100%;
+    height: 450px;
+    /* adjust height as needed */
+    background-image: url('https://templatekit.hellokuro.com//perzifo//wp-content//uploads//2024//01//close-up-view-of-turquoise-smoky-paint-swirls-isol-HTW2EUN.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.contact-top-text h1 {
+    color: #fff;
+    font-size: 76px;
+    margin-bottom: 10px;
+}
+
+.contact-top-text p {
+    color: #fff;
+    font-size: 26px;
+}
+
+.contact-page {
+    font-family: 'Poppins', 'Times New Roman', Times, serif;
+    padding: 0;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 70vh;
+    justify-content: flex-start;
+    /* aligns content to the left */
+    align-items: flex-start;
+    /* optional: aligns items to the top */
+    gap: 20px;
+    /* optional: space between left and right sections */
+    max-width: 1300px;
+    /* optional: keeps container from stretching too wide */
+    margin: 0 auto;
+    margin: 40px auto 0 auto;
+
+}
+
+/* Left side */
+.contact-left {
+    flex: 1;
+    min-width: 300px;
+    background-color: #3390AF;
+    color: #fff;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Add subtle right shadow to separate */
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-left .contact-title {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+.contact-left .contact-subtitle {
+    font-size: 62px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.contact-left .contact-description {
+    font-size: 18px;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+.contact-left .contact-info {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-left .contact-info li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Right side */
+.contact-right {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', 'Times New Roman', Times, serif;
+}
+
+/* Contact form only */
+.contact-right-form {
+    background-color: #fff;
+    padding: 40px 30px;
+    /* Add subtle left shadow to enhance separation */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.contact-right-form h3 {
+    margin-bottom: 20px;
+}
+
+.contact-right-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-right-form input,
+.contact-right-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    resize: none;
+}
+
+.contact-right-form button {
+    padding: 12px;
+    border: none;
+    background-color: #3390AF;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-right-form button:hover {
+    background-color: #217490;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .contact-left,
+    .contact-right-form {
+        padding: 30px 20px;
+    }
+}
+
+/* Success and error messages */
+.form-success {
+    color: #28a745;
+    /* green */
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.form-error {
+    color: #dc3545;
+    /* red */
+    margin-top: 15px;
+    font-weight: bold;
+}
+@media (max-width: 480px) {
+    .contact-left .contact-subtitle {
+        font-size: 48px;
+    }
+
+    .contact-left .contact-title {
+        font-size: 22px;
+    }
+
+    .contact-left .contact-description {
+        font-size: 16px;
+    }
+
+    .contact-top-text h1 {
+        font-size: 48px;
+    }
+
+    .contact-top-text p {
+        font-size: 18px;
+    }
+
+    .contact-right-form {
+        padding: 25px 15px;
+    }
+}
