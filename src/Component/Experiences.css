@@ -1,16 +1,18 @@
 /* src/Component/Experiences.css */
 
-/* SECTION LAYOUT (matches JSON padding values) */
+/* SECTION LAYOUT */
 .experiences-section {
+    box-sizing: border-box;
     padding: 95px 20px;
     background: #ffffff;
     font-family: "Poppins", "Times New Roman", Times, serif;
+    overflow-x: hidden;
 }
 
-@media (max-width: 992px) {
-    .experiences-section {
-        padding: 65px 20px;
-    }
+.experiences-section *,
+.experiences-section *::before,
+.experiences-section *::after {
+    box-sizing: border-box;
 }
 
 /* INNER CONTAINER */
@@ -29,13 +31,13 @@
     color: #3390AF;
     font-size: 16px;
     font-weight: 500;
-    margin-bottom: 8px;
+    margin: 0 0 8px 0;
 }
 
 .experiences-title {
     font-size: 36px;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin: 0 0 12px 0;
 }
 
 .experiences-intro {
@@ -47,7 +49,7 @@
 }
 
 /* TIMELINE WRAPPER */
-.timeline {
+.exp-timeline {
     position: relative;
     margin-top: 40px;
     display: flex;
@@ -56,7 +58,7 @@
 }
 
 /* Vertical center line */
-.timeline-line {
+.exp-timeline-line {
     position: absolute;
     left: 50%;
     top: 0;
@@ -68,7 +70,7 @@
 }
 
 /* TIMELINE ITEM (two columns + center marker) */
-.timeline-item {
+.exp-item {
     position: relative;
     display: grid;
     grid-template-columns: 1fr 60px 1fr;
@@ -81,73 +83,69 @@
     transform: translateY(30px);
 }
 
-/* when in view */
-.timeline-item.in-view {
+.exp-item.exp-in-view {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* content column (left or right) */
-.content-col {
+/* content column */
+.exp-content-col {
+    min-width: 0;
     padding: 20px 30px;
     text-align: right;
-    /* default for left items (text on left aligns right to center line) */
 }
 
-.timeline-item.right .content-col {
+.exp-item.exp-right .exp-content-col {
     text-align: left;
-    /* text on right items aligns left to center line */
 }
 
-/* role title and description */
-.role-title {
+.exp-role-title {
     font-size: 20px;
     font-weight: 700;
     color: #111;
-    margin-bottom: 12px;
+    margin: 0 0 12px 0;
 }
 
-.role-desc {
+.exp-role-desc {
     color: #555;
     font-size: 15px;
     text-align: justify;
     line-height: 1.6;
-    margin-bottom: 18px;
+    margin: 0 0 18px 0;
 }
 
-.company-row {
+.exp-company-row {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 6px;
 }
 
-.timeline-item.right .company-row {
+.exp-item.exp-right .exp-company-row {
     align-items: flex-start;
 }
 
-.company {
+.exp-company {
     color: #3390AF;
     font-weight: 700;
 }
 
-.period {
+.exp-period {
     color: #777;
     font-size: 13px;
 }
 
 /* center marker */
-.marker-wrap {
+.exp-marker-wrap {
     position: relative;
     width: 60px;
     height: 1px;
-    /* just a placeholder area */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.marker {
+.exp-marker {
     width: 16px;
     height: 16px;
     border-radius: 50%;
@@ -158,18 +156,18 @@
 }
 
 /* image column */
-.image-col {
+.exp-image-col {
+    min-width: 0;
     display: flex;
-    justify-content: left;
-    /* default for left items: image on right */
+    justify-content: flex-start;
 }
 
-.timeline-item.right .image-col {
-    justify-content: right;
-    /* image on left for right items */
+.exp-item.exp-right .exp-image-col {
+    justify-content: flex-end;
 }
 
 .exp-image {
+    display: block;
     width: 360px;
     max-width: 100%;
     height: 160px;
@@ -178,47 +176,62 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* RESPONSIVE: stack on small screens */
+/* Tablets */
+@media (max-width: 992px) {
+    .experiences-section {
+        padding: 65px 20px;
+    }
+}
+
+/* Mobile and small tablets: line + marker left-la, content and image stack */
 @media (max-width: 880px) {
-    .timeline {
+    .exp-timeline {
         gap: 30px;
     }
 
-    .timeline-line {
-        left: 20px;
+    /* marker center = 20px, line center = 20px */
+    .exp-timeline-line {
+        left: 18.5px;
         transform: none;
         width: 3px;
     }
 
-    .timeline-item {
-        grid-template-columns: 40px 1fr;
-        align-items: flex-start;
-        gap: 16px;
-        padding-left: 10px;
+    .exp-item {
+        grid-template-columns: 40px minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        align-items: start;
+        gap: 12px 16px;
+        padding: 10px 0;
     }
 
-    .marker-wrap {
+    .exp-marker-wrap {
+        grid-column: 1;
+        grid-row: 1 / span 2;
         width: 40px;
-        display: flex;
+        height: auto;
+        align-items: flex-start;
         justify-content: center;
     }
 
-    .marker {
+    .exp-marker {
         margin-top: 6px;
     }
 
-    .content-col {
+    .exp-content-col {
+        grid-column: 2;
+        grid-row: 1;
         padding: 0;
         text-align: left;
-        grid-column: 2 / 3;
     }
 
-    .timeline-item.right .content-col {
+    .exp-item.exp-right .exp-content-col {
         text-align: left;
     }
 
-    .image-col {
-        grid-column: 2 / 3;
+    .exp-image-col,
+    .exp-item.exp-right .exp-image-col {
+        grid-column: 2;
+        grid-row: 2;
         justify-content: flex-start;
     }
 
@@ -227,42 +240,30 @@
         height: 180px;
     }
 
-    .company-row {
+    .exp-company-row,
+    .exp-item.exp-right .exp-company-row {
         align-items: flex-start;
     }
 }
 
-/* small tweak for very small screens */
-@media (max-width: 480px) {
-    .experiences-title {
-        font-size: 28px;
-    }
-
-    .exp-image {
-        height: 140px;
-    }
-
-    .role-title {
-        font-size: 18px;
-    }
-}
-/* ================= Extra Responsive Tweaks ================= */
-
-/* Tablets (600px - 880px) */
+/* Tablets */
 @media (max-width: 768px) {
     .experiences-intro {
         font-size: 14px;
         max-width: 95%;
     }
-    .role-desc {
+
+    .exp-role-desc {
         font-size: 14px;
+        text-align: left;
     }
+
     .exp-image {
         height: 150px;
     }
 }
 
-/* Mobile (max-width: 480px) */
+/* Small phones */
 @media (max-width: 480px) {
     .experiences-section {
         padding: 50px 15px;
@@ -276,23 +277,23 @@
         font-size: 24px;
     }
 
-    .role-title {
+    .exp-role-title {
         font-size: 16px;
     }
 
-    .role-desc {
+    .exp-role-desc {
         font-size: 13px;
     }
 
-    .company {
+    .exp-company {
         font-size: 14px;
     }
 
-    .period {
+    .exp-period {
         font-size: 12px;
     }
 
     .exp-image {
-        height: 120px;
+        height: 140px;
     }
 }

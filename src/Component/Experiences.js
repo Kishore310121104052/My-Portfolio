@@ -43,14 +43,13 @@ const Experiences = () => {
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add("in-view");
+                        entry.target.classList.add("exp-in-view");
                     }
                 });
             },
-            { threshold: 0.18 }
+            { threshold: 0.1 }
         );
 
-        // copy ref to local var to avoid eslint warning during cleanup
         const currentItems = itemsRef.current;
         currentItems.forEach((el) => {
             if (el) observer.observe(el);
@@ -74,34 +73,34 @@ const Experiences = () => {
                     </p>
                 </div>
 
-                <div className="timeline">
-                    <div className="timeline-line" />
+                <div className="exp-timeline">
+                    <div className="exp-timeline-line" />
 
                     {experiences.map((exp, i) => {
-                        const isLeft = i % 2 === 0; // even index -> text left, image right (like reference)
+                        const isLeft = i % 2 === 0;
                         return (
                             <div
-                                className={`timeline-item ${isLeft ? "left" : "right"}`}
+                                className={`exp-item ${isLeft ? "exp-left" : "exp-right"}`}
                                 key={exp.id}
                                 ref={(el) => (itemsRef.current[i] = el)}
                             >
                                 {/* content column */}
-                                <div className="content-col">
-                                    <h3 className="role-title">{exp.role}</h3>
-                                    <p className="role-desc">{exp.description}</p>
-                                    <div className="company-row">
-                                        <span className="company">{exp.company}</span>
-                                        <span className="period">{exp.period}</span>
+                                <div className="exp-content-col">
+                                    <h3 className="exp-role-title">{exp.role}</h3>
+                                    <p className="exp-role-desc">{exp.description}</p>
+                                    <div className="exp-company-row">
+                                        <span className="exp-company">{exp.company}</span>
+                                        <span className="exp-period">{exp.period}</span>
                                     </div>
                                 </div>
 
                                 {/* marker in center */}
-                                <div className="marker-wrap">
-                                    <div className="marker" />
+                                <div className="exp-marker-wrap">
+                                    <div className="exp-marker" />
                                 </div>
 
                                 {/* image column */}
-                                <div className="image-col">
+                                <div className="exp-image-col">
                                     <img src={exp.image} alt={exp.role} className="exp-image" />
                                 </div>
                             </div>

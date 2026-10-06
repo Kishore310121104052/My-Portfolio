@@ -1,55 +1,66 @@
+/* src/Component/PortfolioSection.css */
 .portfolio-section {
+    box-sizing: border-box;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     padding: 0;
     font-family: "Poppins", 'Times New Roman', Times, serif;
+    overflow-x: hidden;
+}
+
+.portfolio-section *,
+.portfolio-section *::before,
+.portfolio-section *::after {
+    box-sizing: border-box;
 }
 
 .portfolio-left {
     width: 40%;
+    min-width: 0;
     background: #fff;
     padding: 80px 5%;
 }
 
-.subtitle {
+.pf-subtitle {
     color: #3390af;
     font-size: 24px;
     font-weight: 500;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
 }
 
-.title {
+.pf-title {
     font-size: 36px;
     font-weight: 700;
     margin: 10px 0;
 }
 
-.description {
+.pf-description {
     font-size: 16px;
     text-align: justify;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin: 0 0 20px 0;
     color: #444;
 }
 
 .portfolio-right {
     width: 60%;
+    min-width: 0;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 15px;
     padding: 40px;
     background: #258DA1;
-    /* <-- Right side blue background */
 }
 
-.gallery-item {
+.pf-gallery-item {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
 }
 
-.gallery-item img {
+.pf-gallery-item img {
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -58,11 +69,11 @@
     transition: transform 0.3s ease;
 }
 
-.gallery-item:hover img {
+.pf-gallery-item:hover img {
     transform: scale(1.1);
 }
 
-.overlay {
+.pf-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -75,35 +86,49 @@
     border-radius: 0 0 8px 8px;
 }
 
-.gallery-item:hover .overlay {
+.pf-gallery-item:hover .pf-overlay {
     opacity: 1;
 }
 
-.overlay h3 {
+.pf-overlay h3 {
     font-size: 16px;
     margin: 0 0 5px;
 }
 
-.overlay p {
+.pf-overlay p {
     font-size: 14px;
     margin: 0;
 }
-/* ================= Responsive Tweaks ================= */
+
+/* Phone / touch devices: hover illa, adhunala overlay eppovum theriyum */
+@media (hover: none) {
+    .pf-overlay {
+        opacity: 1;
+    }
+
+    .pf-gallery-item:hover img {
+        transform: none;
+    }
+}
 
 /* Tablets */
 @media (max-width: 992px) {
     .portfolio-section {
         flex-direction: column;
     }
-    .portfolio-left, .portfolio-right {
+
+    .portfolio-left,
+    .portfolio-right {
         width: 100%;
         padding: 40px 5%;
     }
+
     .portfolio-right {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         padding: 20px 5%;
     }
-    .gallery-item img {
+
+    .pf-gallery-item img {
         height: 180px;
     }
 }
@@ -111,26 +136,33 @@
 /* Mobile */
 @media (max-width: 600px) {
     .portfolio-right {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 15px;
         padding: 15px 5%;
     }
-    .gallery-item img {
+
+    .pf-gallery-item img {
         height: 160px;
     }
-    .subtitle {
+
+    .pf-subtitle {
         font-size: 20px;
     }
-    .title {
+
+    .pf-title {
         font-size: 28px;
     }
-    .description {
+
+    .pf-description {
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .pf-overlay h3 {
         font-size: 14px;
     }
-    .overlay h3 {
-        font-size: 14px;
-    }
-    .overlay p {
+
+    .pf-overlay p {
         font-size: 12px;
     }
 }

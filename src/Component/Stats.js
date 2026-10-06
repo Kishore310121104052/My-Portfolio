@@ -1,4 +1,4 @@
-// src/Components/Stats.js
+// src/Component/Stats.js
 import React, { useEffect, useRef, useState } from "react";
 import "./Stats.css";
 
@@ -14,7 +14,7 @@ const Stats = () => {
     const sectionRef = useRef(null);
 
     useEffect(() => {
-        const currentRef = sectionRef.current; // ✅ save ref in variable
+        const currentRef = sectionRef.current;
 
         const observer = new IntersectionObserver(
             (entries) => {
@@ -30,7 +30,7 @@ const Stats = () => {
         }
 
         return () => {
-            if (currentRef) observer.unobserve(currentRef); // ✅ cleanup safely
+            if (currentRef) observer.unobserve(currentRef);
         };
     }, []);
 
@@ -51,7 +51,7 @@ const StatBox = ({ target, label, visible }) => {
     useEffect(() => {
         if (visible) {
             let start = 0;
-            const duration = 2000; // 2 seconds
+            const duration = 2000;
             const increment = target / (duration / 30);
 
             const counter = setInterval(() => {

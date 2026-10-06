@@ -53,10 +53,9 @@ const Services = () => {
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
 
-    // ✅ copy ref to local variable (fixes warning)
     const currentCards = cardsRef.current;
     currentCards.forEach((card) => {
       if (card) observer.observe(card);
@@ -75,7 +74,7 @@ const Services = () => {
         <h5 className="services-subtitle">My Services</h5>
         <h2 className="services-title">What I Do For You</h2>
         <p className="services-intro">
-          specialize in building secure, scalable, and user-friendly digital solutions by combining
+          I specialize in building secure, scalable, and user-friendly digital solutions by combining
           full-stack development expertise with strong problem-solving skills.
         </p>
 
@@ -99,7 +98,6 @@ const Services = () => {
                 <h3 className="service-title-text">{s.title}</h3>
                 <p className="service-desc">{s.description}</p>
 
-                {/* ✅ Fixed href warning: added your GitHub link */}
                 <a
                   href="https://github.com/Kishore310121104052"
                   className="service-link"

@@ -1,121 +1,97 @@
-.why-choose-me-section {
+/* src/Component/WhyChooseMe.css */
+.wcm-section {
+    box-sizing: border-box;
     padding: 60px 20px;
     background-color: #258da1;
-    /* matches blue background */
     display: flex;
     justify-content: center;
-    
+    overflow-x: hidden;
 }
 
-.why-choose-me-container {
+.wcm-section *,
+.wcm-section *::before,
+.wcm-section *::after {
+    box-sizing: border-box;
+}
+
+.wcm-container {
     display: flex;
     max-width: 1200px;
+    width: 100%;
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
-    width: 100%;
 }
 
-.image-container {
-    position: relative;
-
+.wcm-image-container {
     flex: 1 1 45%;
-    background: #FFFFFF;
-    /* light blue circle behind */
+    min-width: 0;
+    background: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
-.profile-image {
+.wcm-profile-image {
     max-width: 380px;
-    border-radius: 0%;
-    position: relative;
-    z-index: 1;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-.floating-box {
-    position: absolute;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    padding: 20px 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 600;
-    font-family: "Poppins", 'Times New Roman', Times, serif;
-    font-size: 14px;
-}
-
-.floating-box .check-icon {
-    color: #258da1;
-    font-size: 20px;
-}
-
-.idea-concept {
-    top: 35%;
-    left: 10%;
-    width: 130px;
-    justify-content: center;
-}
-
-.execution {
-    bottom: 25%;
-    left: 35%;
-    width: 100px;
-    justify-content: center;
-}
-
-.content-container {
+.wcm-content-container {
     flex: 1 1 55%;
+    min-width: 0;
     padding: 50px 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.subtitle {
+.wcm-subtitle {
     color: #258da1;
     font-family: "Poppins", 'Times New Roman', Times, serif;
     font-weight: 500;
     font-size: 18px;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
 }
 
-.title {
+.wcm-title {
     font-family: "Poppins", 'Times New Roman', Times, serif;
     font-weight: 700;
     font-size: 38px;
-    margin-bottom: 20px;
+    margin: 0 0 20px 0;
 }
 
-.description {
+.wcm-description {
     font-family: "Poppins", 'Times New Roman', Times, serif;
     font-size: 16px;
-    text-align: justify; 
-    margin-bottom: 40px;
+    text-align: justify;
+    margin: 0 0 40px 0;
     color: #333;
     max-width: 400px;
 }
 
-.expertise-bars .bar-wrapper {
+.wcm-bar-wrapper {
     margin-bottom: 20px;
 }
 
-.label {
+.wcm-bar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.wcm-label,
+.wcm-percentage {
     font-family: "Poppins", 'Times New Roman', Times, serif;
     font-weight: 700;
 }
 
-.percentage {
-    float: right;
-    font-weight: 700;
-    font-family: "Poppins", 'Times New Roman', Times, serif;
-}
-
-.progress-bar {
+.wcm-progress-bar {
     background: #c4e3f3;
     height: 10px;
     border-radius: 10px;
@@ -123,41 +99,62 @@
     overflow: hidden;
 }
 
-.progress-fill {
+.wcm-progress-fill {
     height: 10px;
     background: #258da1;
     border-radius: 10px 0 0 10px;
     width: 0;
-    /* Start from 0 */
     transition: width 2s ease;
 }
 
-/* Responsive tweaks */
+/* Tablets and mobile */
 @media (max-width: 992px) {
-    .why-choose-me-container {
+    .wcm-container {
         flex-direction: column;
     }
 
-    .content-container {
+    .wcm-image-container {
+        flex: none;
+        width: 100%;
+    }
+
+    .wcm-content-container {
+        flex: none;
+        width: 100%;
         padding: 30px 20px;
     }
 
-    .profile-image {
+    .wcm-profile-image {
         max-width: 280px;
+    }
+
+    .wcm-description {
+        max-width: 100%;
     }
 }
 
+/* Small phones */
 @media (max-width: 576px) {
-    .title {
+    .wcm-section {
+        padding: 40px 14px;
+    }
+
+    .wcm-title {
         font-size: 28px;
     }
 
-    .subtitle {
+    .wcm-subtitle {
         font-size: 16px;
     }
 
-    .description {
+    .wcm-description {
         font-size: 14px;
-        max-width: 100%;
+        text-align: left;
+        margin-bottom: 30px;
+    }
+
+    .wcm-label,
+    .wcm-percentage {
+        font-size: 14px;
     }
 }

@@ -1,10 +1,12 @@
 // src/Component/Header.js
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import React, { useState } from 'react';
 import './Header.css';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <header className="header-container" id="home">
@@ -18,8 +20,8 @@ const Header = () => {
         </div>
 
         {/* Hamburger icon */}
-        <div 
-          className="menu-toggle" 
+        <div
+          className="menu-toggle"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           ☰
@@ -27,18 +29,18 @@ const Header = () => {
 
         <nav className={`nav-menu ${isMenuOpen ? "active" : ""}`}>
           <ul className="nav-list">
-            <li><a href="#home" className="nav-item">Home</a></li>
-            <li><a href="#about" className="nav-item">About</a></li>
-            <li><a href="#services" className="nav-item">Services</a></li>
-            <li><a href="#experiences" className="nav-item">Experiences</a></li>
-            <li><a href="#projects" className="nav-item">Projects</a></li>
+            <li><a href="#home" className="nav-item" onClick={closeMenu}>Home</a></li>
+            <li><a href="#about" className="nav-item" onClick={closeMenu}>About</a></li>
+            <li><a href="#services" className="nav-item" onClick={closeMenu}>Services</a></li>
+            <li><a href="#experiences" className="nav-item" onClick={closeMenu}>Experiences</a></li>
+            <li><a href="#projects" className="nav-item" onClick={closeMenu}>Projects</a></li>
 
             {/* Contact with submenu */}
             <li className="nav-item dropdown">
-              <a href="#contact" className="nav-link">Contact</a>
+              <a href="#contact" className="nav-link" onClick={closeMenu}>Contact</a>
               <ul className="dropdown-menu">
                 <li>
-                  <Link to="/contact" className="nav-item">Contact Form Application</Link>
+                  <Link to="/contact" className="nav-item" onClick={closeMenu}>Contact Form Application</Link>
                 </li>
               </ul>
             </li>

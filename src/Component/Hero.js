@@ -1,7 +1,7 @@
 // Hero.js
 import React from 'react';
 import './Hero.css';
-import heroBg from '../assets/images/heropic.jpg'; // ✅ Import your image
+import heroBg from '../assets/images/heropic.jpg';
 
 const Hero = () => {
   return (
@@ -10,13 +10,8 @@ const Hero = () => {
       style={{
         backgroundImage: `url(${heroBg})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'top center', // position image at top
+        backgroundPosition: 'top center',
         backgroundRepeat: 'no-repeat',
-        filter: 'brightness(0.7)',
-        height: '100vh', // exactly 1 viewport height
-        position: 'relative',
-        width: '100%',
-        overflow: 'hidden',
       }}
     >
       <div className="hero-content">

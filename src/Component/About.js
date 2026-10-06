@@ -1,4 +1,4 @@
-// src/Components/About.js
+// src/Component/About.js
 import React from "react";
 import "./About.css";
 
@@ -27,19 +27,38 @@ const About = () => {
                 {/* Right column */}
                 <div className="about-right">
                     <div className="about-socials">
-                        <a href="https://github.com/Kishore310121104052" className="social-link github">
+                        <a
+                            href="https://github.com/Kishore310121104052"
+                            className="about-social-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="GitHub"
+                        >
                             <i className="fab fa-github"></i>
                         </a>
-                        <a href="mailto:kishorepalani2004@gmail.com" className="social-link gmail">
-                            <i className="fab fa-envelope"></i>
+                        <a
+                            href="mailto:kishorepalani2004@gmail.com"
+                            className="about-social-link"
+                            aria-label="Email"
+                        >
+                            <i className="fas fa-envelope"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/kishore-p-developer/?utm_source=chatgpt.comdd" className="social-link linkedin">
+                        <a
+                            href="https://www.linkedin.com/in/kishore-p-developer/"
+                            className="about-social-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="LinkedIn"
+                        >
                             <i className="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="tel:6385143352" className="social-link phone">
+                        <a
+                            href="tel:6385143352"
+                            className="about-social-link"
+                            aria-label="Phone"
+                        >
                             <i className="fas fa-phone"></i>
                         </a>
-
                     </div>
                 </div>
             </div>

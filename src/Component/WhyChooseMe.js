@@ -1,6 +1,14 @@
-// WhyChooseMe.js
+// src/Component/WhyChooseMe.js
 import React, { useEffect, useRef, useState } from 'react';
 import './WhyChooseMe.css';
+import aboutPic from '../assets/images/aboutpic.png';
+
+const skills = [
+    { label: 'React & MERN Stack', value: 80 },
+    { label: 'Java & JavaScript', value: 75 },
+    { label: 'SQL & Databases', value: 85 },
+    { label: 'UI/UX Design (Figma)', value: 85 },
+];
 
 const WhyChooseMe = () => {
     const [visible, setVisible] = useState(false);
@@ -24,63 +32,37 @@ const WhyChooseMe = () => {
     }, []);
 
     return (
-        <section className="why-choose-me-section" ref={sectionRef}>
-            <div className="why-choose-me-container">
-                <div className="image-container">
+        <section className="wcm-section" ref={sectionRef}>
+            <div className="wcm-container">
+                <div className="wcm-image-container">
                     <img
-                        src={require('../assets/images/aboutpic.png')}
+                        src={aboutPic}
                         alt="Why Choose Me"
-                        className="profile-image"
+                        className="wcm-profile-image"
                     />
                 </div>
-                <div className="content-container">
-                    <h5 className="subtitle">Why Choose Me</h5>
-                    <h2 className="title">My Expertise Area</h2>
-                    <p className="description">
+                <div className="wcm-content-container">
+                    <h5 className="wcm-subtitle">Why Choose Me</h5>
+                    <h2 className="wcm-title">My Expertise Area</h2>
+                    <p className="wcm-description">
                         With strong problem-solving skills and a deep interest in software development,
                         I focus on creating impactful projects that combine design and functionality.
                     </p>
-                    <div className="expertise-bars">
-                        <div className="bar-wrapper">
-                            <span className="label">React & MERN Stack</span>
-                            <span className="percentage">80%</span>
-                            <div className="progress-bar">
-                                <div
-                                    className="progress-fill"
-                                    style={{ width: visible ? '80%' : '0%' }}
-                                ></div>
+                    <div className="wcm-bars">
+                        {skills.map((skill) => (
+                            <div className="wcm-bar-wrapper" key={skill.label}>
+                                <div className="wcm-bar-header">
+                                    <span className="wcm-label">{skill.label}</span>
+                                    <span className="wcm-percentage">{skill.value}%</span>
+                                </div>
+                                <div className="wcm-progress-bar">
+                                    <div
+                                        className="wcm-progress-fill"
+                                        style={{ width: visible ? `${skill.value}%` : '0%' }}
+                                    ></div>
+                                </div>
                             </div>
-                        </div>
-                        <div className="bar-wrapper">
-                            <span className="label">Java & JavaScript</span>
-                            <span className="percentage">75%</span>
-                            <div className="progress-bar">
-                                <div
-                                    className="progress-fill"
-                                    style={{ width: visible ? '75%' : '0%' }}
-                                ></div>
-                            </div>
-                        </div>
-                        <div className="bar-wrapper">
-                            <span className="label">SQL & Databases</span>
-                            <span className="percentage">85%</span>
-                            <div className="progress-bar">
-                                <div
-                                    className="progress-fill"
-                                    style={{ width: visible ? '85%' : '0%' }}
-                                ></div>
-                            </div>
-                        </div>
-                        <div className="bar-wrapper">
-                            <span className="label">UI/UX Design (Figma)</span>
-                            <span className="percentage">85%</span>
-                            <div className="progress-bar">
-                                <div
-                                    className="progress-fill"
-                                    style={{ width: visible ? '85%' : '0%' }}
-                                ></div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>

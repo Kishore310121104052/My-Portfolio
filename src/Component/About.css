@@ -1,6 +1,8 @@
+/* src/Component/About.css */
 .about-section {
     padding: 80px 20px;
     background-color: #fff;
+    overflow-x: hidden;
 }
 
 .about-container {
@@ -10,6 +12,12 @@
     align-items: center;
     justify-content: space-between;
     gap: 40px;
+}
+
+.about-left,
+.about-center,
+.about-right {
+    min-width: 0;
 }
 
 /* Left column */
@@ -44,24 +52,18 @@
 .about-description {
     font-family: "Poppins", 'Times New Roman', Times, serif;
     font-size: 16px;
-    text-align: justify; 
+    text-align: justify;
     line-height: 1.6;
     color: #333;
-
 }
 
 /* Right column */
 .about-right {
-    flex: 2;
-    text-align: right;
-    border-left: 2px solid #3390AF;
-    padding-left: 20px;
-}
-
-.about-right {
     flex: 1;
     display: flex;
     justify-content: center;
+    border-left: 2px solid #3390AF;
+    padding-left: 20px;
 }
 
 .about-socials {
@@ -70,7 +72,7 @@
     gap: 15px;
 }
 
-.social-link {
+.about-social-link {
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -80,37 +82,17 @@
     font-size: 18px;
     color: #fff;
     background-color: #3390AF;
-    transition: all 50s ease;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-.social-link:hover {
+.about-social-link:hover {
     opacity: 0.8;
     transform: scale(1.05);
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .about-center {
-        border-left: none;
-        padding-left: 0;
-    }
-
-    .about-socials {
-        flex-direction: row;
-        justify-content: center;
-    }
-}
-
-/* ========================= */
-/* Animations for About Page */
-/* ========================= */
-
-@keyframes fadeInLeft {
+/* Animations (about prefix, Hero animations oda mix aagaama) */
+@keyframes aboutFadeInLeft {
     from {
         opacity: 0;
         transform: translateX(-30px);
@@ -122,7 +104,7 @@
     }
 }
 
-@keyframes fadeInUp {
+@keyframes aboutFadeInUp {
     from {
         opacity: 0;
         transform: translateY(30px);
@@ -134,7 +116,7 @@
     }
 }
 
-@keyframes fadeInRight {
+@keyframes aboutFadeInRight {
     from {
         opacity: 0;
         transform: translateX(30px);
@@ -146,35 +128,37 @@
     }
 }
 
-/* Apply animations */
 .about-left {
-    animation: fadeInLeft 1s ease-in-out;
+    animation: aboutFadeInLeft 1s ease-in-out;
 }
 
 .about-center {
-    animation: fadeInUp 1s ease-in-out;
+    animation: aboutFadeInUp 1s ease-in-out;
 }
 
 .about-right {
-    animation: fadeInRight 1s ease-in-out;
+    animation: aboutFadeInRight 1s ease-in-out;
 }
 
-/* Responsive tweak: animate again on mobile */
+/* Tablets and mobile */
 @media (max-width: 992px) {
+    .about-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 24px;
+        text-align: center;
+    }
 
     .about-left,
     .about-center,
     .about-right {
-        animation: fadeInUp 1s ease-in-out;
+        flex: none;
+        width: 100%;
+        animation: aboutFadeInUp 1s ease-in-out;
     }
-}
-/* ===================== Extra Responsive CSS ===================== */
 
-/* Tablets (768px - 992px) */
-@media (max-width: 768px) {
     .about-left {
         text-align: center;
-        margin-bottom: 20px;
     }
 
     .about-center {
@@ -185,58 +169,58 @@
     .about-right {
         border-left: none;
         padding-left: 0;
-        margin-top: 20px;
         justify-content: center;
     }
 
     .about-socials {
         flex-direction: row;
-        gap: 10px;
+        justify-content: center;
+        gap: 12px;
     }
+}
 
-    .about-subtitle {
-        font-size: 22px;
+@media (max-width: 768px) {
+    .about-section {
+        padding: 60px 16px;
     }
 
     .about-title {
         font-size: 16px;
     }
 
+    .about-subtitle {
+        font-size: 22px;
+    }
+
     .about-description {
         font-size: 15px;
+        text-align: left;
     }
 }
 
-/* Mobile (max-width: 480px) */
+/* Small phones */
 @media (max-width: 480px) {
-    .about-left, 
-    .about-center, 
-    .about-right {
-        flex: 1 1 100%;
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    .about-description {
-        font-size: 14px;
-        padding: 0 15px;
-    }
-
-    .about-subtitle {
-        font-size: 18px;
+    .about-section {
+        padding: 40px 14px;
     }
 
     .about-title {
         font-size: 14px;
     }
 
+    .about-subtitle {
+        font-size: 18px;
+    }
+
+    .about-description {
+        font-size: 14px;
+    }
+
     .about-socials {
-        flex-direction: row;
-        justify-content: center;
         gap: 8px;
     }
 
-    .social-link {
+    .about-social-link {
         width: 40px;
         height: 40px;
         font-size: 16px;

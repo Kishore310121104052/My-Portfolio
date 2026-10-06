@@ -1,6 +1,15 @@
+/* src/Component/Services.css */
 .services-section {
+  box-sizing: border-box;
   padding: 80px 20px;
   background: #fff;
+  overflow-x: hidden;
+}
+
+.services-section *,
+.services-section *::before,
+.services-section *::after {
+  box-sizing: border-box;
 }
 
 .services-container {
@@ -13,14 +22,14 @@
   font-size: 18px;
   font-weight: 600;
   color: #258da1;
-  margin-bottom: 10px;
+  margin: 0 0 10px 0;
   font-family: "Poppins", 'Times New Roman', Times, serif;
 }
 
 .services-title {
   font-size: 36px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin: 0 0 20px 0;
   font-family: "Poppins", 'Times New Roman', Times, serif;
 }
 
@@ -30,6 +39,7 @@
   color: #555;
   font-size: 16px;
   line-height: 1.6;
+  font-family: "Poppins", 'Times New Roman', Times, serif;
 }
 
 /* Service card layout */
@@ -43,14 +53,24 @@
   display: flex;
   align-items: stretch;
   gap: 30px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.service-card.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .service-image-box {
   flex: 1;
+  min-width: 0;
   border: 8px solid #258da1;
 }
 
 .service-image {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -58,6 +78,7 @@
 
 .service-content-box {
   flex: 1;
+  min-width: 0;
   background: #fff;
   padding: 40px 30px;
   border-radius: 8px;
@@ -86,8 +107,9 @@
 .service-title-text {
   font-size: 22px;
   font-weight: 600;
-  margin-bottom: 15px;
+  margin: 0 0 15px 0;
   color: #258da1;
+  padding-right: 20px;
 }
 
 .service-desc {
@@ -95,7 +117,7 @@
   text-align: justify;
   color: #444;
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin: 0 0 20px 0;
 }
 
 .service-link {
@@ -108,130 +130,114 @@
   text-decoration: underline;
 }
 
-/* Responsive */
+/* Tablets and mobile */
 @media (max-width: 992px) {
   .service-card {
     flex-direction: column;
+    gap: 20px;
+  }
+
+  .service-image-box {
+    flex: none;
+    width: 100%;
+  }
+
+  .service-image {
+    height: auto;
   }
 
   .service-content-box {
-    margin-top: 20px;
+    flex: none;
+    width: 100%;
   }
 
+  /* circle card-kulla irukkum (veliya pogaadhu) */
   .service-icon-circle {
-    top: -20px;
-    right: 20px;
+    top: -22px;
+    right: 15px;
   }
 }
 
-/* --- Existing styles remain unchanged --- */
-
-/* Animation keyframes */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Apply animation */
-.service-card {
-  display: flex;
-  align-items: stretch;
-  gap: 30px;
-  opacity: 0;
-  /* start hidden */
-  transform: translateY(40px);
-  transition: all 0.6s ease-in-out;
-}
-
-.service-card.animate {
-  opacity: 1;
-  transform: translateY(0);
-  animation: fadeInUp 0.8s ease forwards;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-  .service-card {
-    flex-direction: column;
-  }
-
-  .service-content-box {
-    margin-top: 20px;
-  }
-
-  .service-icon-circle {
-    top: -20px;
-    right: 20px;
-  }
-}
-/* ===================== Extra Responsive CSS ===================== */
-
-/* Tablets (768px - 992px) */
 @media (max-width: 768px) {
-    .services-title {
-        font-size: 28px;
-    }
-    .services-subtitle {
-        font-size: 16px;
-    }
-    .services-intro {
-        font-size: 14px;
-        max-width: 90%;
-    }
-    .service-content-box {
-        padding: 25px 20px;
-    }
-    .service-title-text {
-        font-size: 20px;
-    }
-    .service-desc {
-        font-size: 14px;
-    }
-    .service-icon-circle {
-        width: 50px;
-        height: 50px;
-        font-size: 18px;
-        top: -20px;
-        right: -15px;
-    }
+  .services-section {
+    padding: 60px 16px;
+  }
+
+  .services-title {
+    font-size: 28px;
+  }
+
+  .services-subtitle {
+    font-size: 16px;
+  }
+
+  .services-intro {
+    font-size: 14px;
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .service-content-box {
+    padding: 30px 20px 25px;
+  }
+
+  .service-title-text {
+    font-size: 20px;
+  }
+
+  .service-desc {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .service-icon-circle {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    top: -20px;
+    right: 15px;
+  }
 }
 
-/* Mobile (max-width: 480px) */
+/* Small phones */
 @media (max-width: 480px) {
-    .services-title {
-        font-size: 22px;
-    }
-    .services-subtitle {
-        font-size: 14px;
-    }
-    .services-intro {
-        font-size: 13px;
-        max-width: 95%;
-    }
-    .service-content-box {
-        padding: 20px 15px;
-    }
-    .service-title-text {
-        font-size: 18px;
-    }
-    .service-desc {
-        font-size: 13px;
-    }
-    .service-icon-circle {
-        width: 45px;
-        height: 45px;
-        font-size: 16px;
-        top: -15px;
-        right: -10px;
-    }
-    .service-image-box {
-        border: 6px solid #258da1;
-    }
+  .services-section {
+    padding: 40px 14px;
+  }
+
+  .services-title {
+    font-size: 22px;
+  }
+
+  .services-subtitle {
+    font-size: 14px;
+  }
+
+  .services-intro {
+    font-size: 13px;
+  }
+
+  .service-content-box {
+    padding: 28px 16px 20px;
+  }
+
+  .service-title-text {
+    font-size: 18px;
+  }
+
+  .service-desc {
+    font-size: 13px;
+  }
+
+  .service-icon-circle {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+    top: -18px;
+    right: 12px;
+  }
+
+  .service-image-box {
+    border: 6px solid #258da1;
+  }
 }
